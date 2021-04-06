@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:gravity="center"
+        android:id="@+id/base"
+        android:drawable="@drawable/base_icon" />
+    <item
+        android:gravity="center"
+        android:id="@+id/top"
+        android:top="30dp"
+        android:drawable="@drawable/top_show"/>
+</layer-list>
