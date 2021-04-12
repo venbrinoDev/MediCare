@@ -6,64 +6,71 @@
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="165dp"
-        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
         android:id="@+id/baseBackground"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        android:fadingEdgeLength="10dp"
         app:cardBackgroundColor="@color/white"
-        android:layout_height="210dp">
+        android:layout_height="100dp">
 
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_alignParentEnd="true"
+
+
+            <com.github.florent37.shapeofview.shapes.ArcView
+            android:layout_width="100dp"
+                android:id="@+id/displayImage"
+
                 android:layout_margin="10dp"
-                android:backgroundTint="@color/black"
-                android:background="@drawable/ic_baseline_navigate"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:layout_width="113dp"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/nurse"
-                android:alpha="0.8"
-                android:id="@+id/doctorsImage"
-                android:scaleType="fitXY"
-                android:layout_height="179dp"/>
-
-            <RelativeLayout
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                android:layout_marginBottom="20dp"
-                android:layout_height="75dp">
-
-                <View
+                app:shape_clip_drawable="@drawable/round_button"
+            android:layout_height="match_parent">
+              <View
+                  android:layout_width="match_parent"
+                  android:background="@drawable/round_button_vertival"
+                  android:layout_height="match_parent"/>
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:backgroundTint="@color/colorPrimary200"
-                    android:alpha="0.8
-"
-                    android:background="@drawable/item_horizontal_round"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/nurse"
+                        android:id="@+id/doctorsImage"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+            </com.github.florent37.shapeofview.shapes.ArcView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@id/displayImage"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
                     android:textAlignment="textStart"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
                     android:textSize="16sp"
                     android:id="@+id/doctorsName"
+                    android:textStyle="normal"
+                    android:textFontWeight="2"
                     android:text="Dr . Elena giona"
-                   android:textColor="@color/black"
+                    android:textColor="@color/black"
                     android:lines="1"
                     android:fontFamily="@font/sub_heading"
                     android:layout_height="wrap_content"/>
@@ -71,42 +78,66 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
                     android:layout_marginRight="10dp"
-                    android:textAlignment="textStart"
                     android:id="@+id/doctorsOccupation"
-
                     android:lines="1"
-                    android:textColor="@color/doctors_card_grey"
-                    android:layout_below="@id/doctorsName"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_marginTop="5dp"
                     android:text="Nurse and doctor"
                     android:textSize="14sp"
                     android:fontFamily="@font/sub_heading"
                     android:layout_height="wrap_content"/>
 
-                <TextView
+            </LinearLayout>
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_below="@id/doctorsOccupation"
-                    android:id="@+id/doctorsNumber"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textAlignment="textStart"
-                    android:drawableStart="@drawable/ic_baseline_star_rate_24"
-                    android:textColor="@color/doctors_card_grey"
-                    android:lines="1"
-                    android:text="4.54"
-                    android:drawablePadding="2dp"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/sub_heading"
-                    android:layout_height="wrap_content"/>
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="20dp">
 
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/doctorsNumber"
+                        android:layout_marginTop="5dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:lines="1"
+                        android:text="4.54"
+                        android:drawablePadding="2dp"
+                        android:textSize="12dp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_star_rate_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/time"
+                        android:lines="1"
+                        android:layout_weight="1"
+                        android:text="10:00 Am - 6:00 Am"
+                        android:drawablePadding="2dp"
+                        android:gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_access_time_24" />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
 
         </RelativeLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

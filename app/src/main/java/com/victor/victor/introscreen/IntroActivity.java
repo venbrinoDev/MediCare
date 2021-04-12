@@ -1,11 +1,11 @@
-package com.labawsrh.aws.introscreen;
+package com.victor.victor.introscreen;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.transition.ChangeImageTransform;
+import android.transition.Explode;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,6 +13,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+import com.victor.victor.Main.MainActivity;
+import com.victor.victor.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +46,17 @@ public class IntroActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        getWindow().setEnterTransition(new Explode());
+        getWindow().setExitTransition(new Explode());
+        getWindow().setSharedElementEnterTransition(new ChangeImageTransform());
+        getWindow().setSharedElementEnterTransition(new ChangeImageTransform());
 
         // when this activity is about to be launch we need to check if its openened before or not
 
         if (restorePrefData()) {
 
-            Intent mainActivity = new Intent(getApplicationContext(),MainActivity.class );
+            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class );
             startActivity(mainActivity);
             finish();
 
@@ -55,7 +67,8 @@ public class IntroActivity extends AppCompatActivity {
 
         // hide the action bar
 
-        getSupportActionBar().hide();
+
+
 
         // ini views
         btnNext = findViewById(R.id.btn_next);
@@ -67,9 +80,9 @@ public class IntroActivity extends AppCompatActivity {
         // fill list screen
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Fresh Food","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img1));
-        mList.add(new ScreenItem("Fast Delivery","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img2));
-        mList.add(new ScreenItem("Easy Payment","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.img3));
+        mList.add(new ScreenItem("24/Hrs Service","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.first_screen));
+        mList.add(new ScreenItem("Experienced Doctors ","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.second_screen));
+        mList.add(new ScreenItem("Quick Response","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.third_screen));
 
         // setup viewpager
         screenPager =findViewById(R.id.screen_viewpager);
@@ -152,7 +165,7 @@ public class IntroActivity extends AppCompatActivity {
                 // also we need to save a boolean value to storage so next time when the user run the app
                 // we could know that he is already checked the intro screen activity
                 // i'm going to use shared preferences to that process
-                savePrefsData();
+//                savePrefsData();
                 finish();
 
 

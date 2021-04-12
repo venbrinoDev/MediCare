@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.victor.victor.introscreen;
 
 public class ScreenItem {
 

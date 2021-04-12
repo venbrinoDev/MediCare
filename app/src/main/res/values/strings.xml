@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">VICTOR</string>
+    <string name="first_intro">Hello welcome to Medi-Care\nClick here to talk to Elena</string>
+    <string name="covid_guidLines">Hi Hope you are following the covid guideLines</string>
+    <string name="hrs_service">\"We offer you 24/hrs services \"</string>
+    <string name="quick_assistance">We offer Quick Assistance at all cost</string>
+    <string name="click_here_to_talk_to_elena">Click Here to talk to Elena</string>
 </resources>

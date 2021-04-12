@@ -1,30 +1,28 @@
 package com.victor.victor.App.TopDoctorsAdapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.victor.victor.App.Models.DoctorsInfo;
+import com.victor.victor.App.Models.SearchDoctors;
 import com.victor.victor.R;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
-public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.ViewHolder> {
+public class SearchDoctorsAdapter extends RecyclerView.Adapter<SearchDoctorsAdapter.ViewHolder> {
 
     private Context context;
-    private List<DoctorsInfo> doctorsInfos;
+    private List<SearchDoctors> doctorsInfos;
 
-    public TopDoctorsAdapter(Context context, List<DoctorsInfo> doctorsInfos){
+    public SearchDoctorsAdapter(Context context, List<SearchDoctors> doctorsInfos){
         this.context = context;
         this.doctorsInfos = doctorsInfos;
     }
@@ -36,19 +34,19 @@ public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater  layoutInflater= LayoutInflater.from(parent.getContext());
-        View showView = layoutInflater.inflate(R.layout.itemview_horizontal,parent,false);
+        View showView = layoutInflater.inflate(R.layout.itemview_vertical,parent,false);
         return new ViewHolder(showView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DoctorsInfo doctorsInfo = doctorsInfos.get(position);
+        SearchDoctors doctorsInfo = doctorsInfos.get(position);
 
         int doctorsImage = doctorsInfo.getDoctorsImage();
         String doctorsName = doctorsInfo.getDoctorsName();
         String doctorsProfession = doctorsInfo.getDoctorsOccupations();
         String doctorsNumber = doctorsInfo.getDoctorsNumber();
-        int whichColor = doctorsInfo.getColor();
+        String time = doctorsInfo.getTime();
 
 
 
@@ -56,6 +54,7 @@ public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.Vi
         holder.doctorsOccupation.setText(doctorsProfession);
         holder.doctorsImage.setImageResource(doctorsImage);
         holder.doctorsNumber.setText(doctorsNumber);
+        holder.time.setText(time);
     }
 
     @Override
@@ -70,7 +69,7 @@ public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.Vi
         public  TextView doctorsName;
         public  TextView doctorsOccupation;
         public CardView baseBaseBackground;
-
+        public  TextView time;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             doctorsImage = itemView.findViewById(R.id.doctorsImage);
@@ -78,6 +77,7 @@ public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.Vi
             doctorsOccupation = itemView.findViewById(R.id.doctorsOccupation);
             doctorsName = itemView.findViewById(R.id.doctorsName);
             baseBaseBackground = itemView.findViewById(R.id.baseBackground);
+            time = itemView.findViewById(R.id.time);
 
 
         }
