@@ -1,6 +1,5 @@
 package com.victor.victor.SplashScreen
 
-import android.animation.ValueAnimator
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.transition.Explode
 import android.view.View
 import android.view.Window
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
 import com.victor.victor.App.Base.Activity.BaseActivity
 import com.victor.victor.App.util.Constant
 import com.victor.victor.App.util.SharedPrefManager

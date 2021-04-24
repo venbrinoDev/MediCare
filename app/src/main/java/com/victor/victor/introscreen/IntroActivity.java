@@ -20,6 +20,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.victor.victor.Main.MainActivity;
 import com.victor.victor.R;
+import com.victor.victor.introscreen.IntroViewPagerAdapter;
+import com.victor.victor.introscreen.ScreenItem;
 
 import java.util.ArrayList;
 import java.util.List;

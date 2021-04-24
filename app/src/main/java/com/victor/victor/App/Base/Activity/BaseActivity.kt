@@ -1,12 +1,8 @@
 package com.victor.victor.App.Base.Activity
 
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.TextView
@@ -34,7 +30,7 @@ abstract  class BaseActivity:AppCompatActivity(){
         }
     }
 
-    fun startNewActivityForResult(name: Class<*>, data: Bundle? = null, requestCode:Int= DEFAULT_REQUEST_CODE) {
+    fun startNewActivityForResult(name: Class<*>, data: Bundle? = null, requestCode: Int = DEFAULT_REQUEST_CODE) {
         val intent = Intent(this, name)
         intent.putExtra(Constant.EXTRA, data)
         startActivityForResult(intent, requestCode)

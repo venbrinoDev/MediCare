@@ -1,35 +1,33 @@
-package com.victor.victor.App.TopDoctorsAdapter;
+package com.victor.victor.App.Adapters;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.victor.victor.App.Models.DoctorsInfo;
+import com.victor.victor.App.Models.SearchDoctors;
+import com.victor.victor.App.inteface.ClickItem;
 import com.victor.victor.R;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.ViewHolder> {
 
     private Context context;
-    private List<DoctorsInfo> doctorsInfos;
+    private List<SearchDoctors> doctorsInfos;
+    private ClickItem clickItem;
 
-    public TopDoctorsAdapter(Context context, List<DoctorsInfo> doctorsInfos){
+    public TopDoctorsAdapter(Context context, List<SearchDoctors> doctorsInfos, ClickItem clickItem){
         this.context = context;
         this.doctorsInfos = doctorsInfos;
+        this.clickItem = clickItem;
     }
-
-
 
 
     @NonNull
@@ -42,20 +40,28 @@ public class TopDoctorsAdapter extends RecyclerView.Adapter<TopDoctorsAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DoctorsInfo doctorsInfo = doctorsInfos.get(position);
+        SearchDoctors doctorsInfo = doctorsInfos.get(position);
 
         int doctorsImage = doctorsInfo.getDoctorsImage();
         String doctorsName = doctorsInfo.getDoctorsName();
         String doctorsProfession = doctorsInfo.getDoctorsOccupations();
-        String doctorsNumber = doctorsInfo.getDoctorsNumber();
-        int whichColor = doctorsInfo.getColor();
+        String doctorsInfoRating = doctorsInfo.getRating();
 
 
 
         holder.doctorsName.setText(doctorsName);
         holder.doctorsOccupation.setText(doctorsProfession);
         holder.doctorsImage.setImageResource(doctorsImage);
-        holder.doctorsNumber.setText(doctorsNumber);
+        holder.doctorsNumber.setText(doctorsInfoRating);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clickItem !=null){
+                    clickItem.clickSearchDoctors(doctorsInfo);
+
+                }
+            }
+        });
     }
 
     @Override

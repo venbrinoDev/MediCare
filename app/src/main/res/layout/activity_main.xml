@@ -20,6 +20,7 @@
           android:layout_marginTop="30dp"
           android:layout_width="200dp"
           android:layout_toStartOf="@id/nurse"
+          android:id="@+id/talk_to_Elena"
           android:padding="8dp"
           android:backgroundTint="@color/white"
           android:layout_marginStart="20dp"
@@ -121,43 +122,23 @@
 
 
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_marginLeft="10dp"
-          android:layout_marginRight="10dp"
-          android:layout_marginTop="20dp"
-          android:id="@+id/heading"
-          android:layout_height="wrap_content">
+
          <TextView
              android:layout_width="wrap_content"
              android:textStyle="bold"
              android:id="@+id/topDoctors"
              android:fontFamily="@font/sub_heading"
              android:textColor="@color/black"
-             android:drawableLeft="@drawable/ic_top_doctors"
-             android:gravity="center"
              android:drawablePadding="5dp"
-             android:layout_weight="1"
+             android:textSize="20sp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_marginTop="30dp"
              android:textAlignment="textStart"
-             android:text="Top Doctors"
+             android:text="@string/top_doctors"
              android:layout_height="wrap_content"/>
-         <TextView
-             android:layout_width="wrap_content"
-             android:textStyle="bold"
-             android:id="@+id/explore"
-             android:fontFamily="@font/sub_heading"
-             android:layout_weight="1"
-             android:layout_gravity=""
-             android:textColor="@android:color/darker_gray"
-             android:gravity="center"
-             android:drawablePadding="5dp"
-             android:textAlignment="textEnd"
-             android:text="See more"
-             android:layout_height="wrap_content"
-             app:drawableRightCompat="@drawable/ic_explore_more"
-             app:drawableTint="@android:color/darker_gray" />
 
-      </LinearLayout>
+
 
 
       <androidx.recyclerview.widget.RecyclerView
@@ -165,7 +146,7 @@
           android:id="@+id/recyclerView"
           android:overScrollMode="never"
           android:layout_height="wrap_content"
-          android:layout_below="@id/heading"
+          android:layout_below="@id/topDoctors"
           android:layout_marginTop="10dp" />
 
       <TextView
@@ -179,7 +160,6 @@
           android:fontFamily="@font/sub_heading"
           android:textColor="@color/black"
           android:textSize="20dp"
-          android:gravity="center"
           android:drawablePadding="5dp"
           android:textAlignment="textStart"
           android:text="What Do you need?"
@@ -203,6 +183,7 @@
              android:layout_columnWeight="1"
              android:layout_rowWeight="1"
              android:layout_marginEnd="10dp"
+             android:id="@+id/nearbyHospital"
              android:layout_marginStart="10dp"
              android:layout_marginBottom="16dp"
              app:cardBackgroundColor="@color/white"

@@ -5,4 +5,9 @@
     <string name="hrs_service">\"We offer you 24/hrs services \"</string>
     <string name="quick_assistance">We offer Quick Assistance at all cost</string>
     <string name="click_here_to_talk_to_elena">Click Here to talk to Elena</string>
+    <string name="hint_doctors">Dr .Elena giona is a well trained is a well trained and experienced doctors who have pratice and gone
+    and have gone through enough training . she has experienced in all field and area
+    </string>
+    <string name="title_activity_maps">Map</string>
+    <string name="top_doctors">Top Doctors</string>
 </resources>

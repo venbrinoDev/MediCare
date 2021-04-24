@@ -1,4 +1,4 @@
-package com.victor.victor.App.TopDoctorsAdapter;
+package com.victor.victor.App.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.victor.victor.App.Models.DoctorsInfo;
 import com.victor.victor.App.Models.SearchDoctors;
+import com.victor.victor.App.inteface.ClickItem;
 import com.victor.victor.R;
 
 import java.util.List;
@@ -22,9 +22,12 @@ public class SearchDoctorsAdapter extends RecyclerView.Adapter<SearchDoctorsAdap
     private Context context;
     private List<SearchDoctors> doctorsInfos;
 
-    public SearchDoctorsAdapter(Context context, List<SearchDoctors> doctorsInfos){
+    private ClickItem clickItem;
+
+    public SearchDoctorsAdapter(Context context, List<SearchDoctors> doctorsInfos,ClickItem clickItem){
         this.context = context;
         this.doctorsInfos = doctorsInfos;
+        this.clickItem = clickItem;
     }
 
 
@@ -45,7 +48,7 @@ public class SearchDoctorsAdapter extends RecyclerView.Adapter<SearchDoctorsAdap
         int doctorsImage = doctorsInfo.getDoctorsImage();
         String doctorsName = doctorsInfo.getDoctorsName();
         String doctorsProfession = doctorsInfo.getDoctorsOccupations();
-        String doctorsNumber = doctorsInfo.getDoctorsNumber();
+        String doctorsInfoRating = doctorsInfo.getRating();
         String time = doctorsInfo.getTime();
 
 
@@ -53,8 +56,20 @@ public class SearchDoctorsAdapter extends RecyclerView.Adapter<SearchDoctorsAdap
         holder.doctorsName.setText(doctorsName);
         holder.doctorsOccupation.setText(doctorsProfession);
         holder.doctorsImage.setImageResource(doctorsImage);
-        holder.doctorsNumber.setText(doctorsNumber);
+        holder.doctorsNumber.setText(doctorsInfoRating);
         holder.time.setText(time);
+
+        holder.itemView.setOnClickListener(view -> {
+            if (clickItem !=null){
+                clickItem.clickSearchDoctors(doctorsInfo);
+            }
+        });
+    }
+
+
+    public  void refreshList(List<SearchDoctors> searchDoctors){
+        this.doctorsInfos = searchDoctors;
+        notifyDataSetChanged();
     }
 
     @Override
