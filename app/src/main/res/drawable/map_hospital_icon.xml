@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:width="60dp"
+        android:height="60dp"
+        android:drawable="@drawable/slighty_round"/>
+    <item
+        android:width="40dp"
+        android:height="40dp"
+        android:gravity="center"
+        android:drawable="@drawable/nearby_hospital"/>
+</layer-list>

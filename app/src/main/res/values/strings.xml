@@ -1,13 +1,28 @@
 <resources>
-    <string name="app_name">VICTOR</string>
-    <string name="first_intro">Hello welcome to Medi-Care\nClick here to talk to Elena</string>
-    <string name="covid_guidLines">Hi Hope you are following the covid guideLines</string>
-    <string name="hrs_service">\"We offer you 24/hrs services \"</string>
-    <string name="quick_assistance">We offer Quick Assistance at all cost</string>
+    <string name="app_name">Medi-Care</string>
     <string name="click_here_to_talk_to_elena">Click Here to talk to Elena</string>
     <string name="hint_doctors">Dr .Elena giona is a well trained is a well trained and experienced doctors who have pratice and gone
     and have gone through enough training . she has experienced in all field and area
     </string>
     <string name="title_activity_maps">Map</string>
     <string name="top_doctors">Top Doctors</string>
+    <string name="nearest_hospital">nearest hospital</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="powered_by_medicare">Powered By MediCare</string>
+    <string name="mock_up">Louis Hospital is the best you can get we offer greet sservice to you so you can get in hand what you want we do hope
+        you use our service g gd gd dg dgd d hdh dhh dh dh dh dh dhd h dh</string>
+    <string name="medicare">Medicare is a medical App  created under the name of VICTOR IHENACHO By venbrino software developers.
+
+    </string>
+
+
+
+    <string name="hours_service">At medicare your satisfaction is our top most priority . we make sure you get the topmost service</string>
+    <string name="experience_doctor">Our doctors are top notch.With our well trained doctors we assure that you are at the right place </string>
+    <string name="quick_respond">Reach us at medicare anytime ,anywhere.We got you covered at medicare</string>
+
+
+    <string-array name="hospital_name">
+        <item >Lo</item>
+    </string-array>
 </resources>

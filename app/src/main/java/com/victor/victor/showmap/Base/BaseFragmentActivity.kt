@@ -3,6 +3,8 @@ package com.victor.victor.showmap.Base
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
 import com.victor.victor.R
@@ -11,6 +13,7 @@ import com.victor.victor.showmap.getPalces.PlacesViewModel
 abstract  class BaseFragmentActivity :FragmentActivity()  {
 
    lateinit var viewModel: PlacesViewModel
+   lateinit var backButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,13 +29,26 @@ abstract  class BaseFragmentActivity :FragmentActivity()  {
         }
 
         setContentView(getLayoutId())
-
-
-
-
-
+        intiViews();
+        initClicks()
     }
 
+    abstract fun initClicks()
+
+    private fun intiViews(){
+         backButton = findViewById(R.id.backButton);
+
+     }
+
+
+    protected   fun showToast(message:String ,length:Int =1){
+
+        when (length) {
+            1 -> Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+            2 -> Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+        }
+
+    }
 
     abstract  fun showTransition():Boolean
 

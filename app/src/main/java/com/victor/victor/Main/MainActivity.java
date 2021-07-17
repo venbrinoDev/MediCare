@@ -1,8 +1,11 @@
 package com.victor.victor.Main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.transition.ChangeImageTransform;
@@ -29,6 +32,9 @@ import com.victor.victor.App.util.Constant;
 import com.victor.victor.DocotorsAccout.DoctorsPageActivity;
 import com.victor.victor.Main.searchDocotrs.SearchImplement;
 import com.victor.victor.R;
+import com.victor.victor.TipsAndGuide.TipsAndGuide;
+import com.victor.victor.about_us.About_us;
+import com.victor.victor.mockData.Data.MockData;
 import com.victor.victor.showmap.GoogleMap;
 
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +51,7 @@ public class MainActivity extends BaseActivity implements ClickItem {
     ScrollView scrollView;
     BottomSheetDialog bottomSheetDialog;
     RelativeLayout search_doctors_relative,talk_to_Elena;
-    CardView  search_doctors_cardView,nearby_hospital;
+    CardView  search_doctors_cardView,nearby_hospital,tips_and_guide,about_us;
     List<SearchDoctors> searchDoctors;
     List<SearchDoctors> topDoctors;
     SearchDoctorsAdapter searchDoctorsAdapter;
@@ -58,19 +64,18 @@ public class MainActivity extends BaseActivity implements ClickItem {
         getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         getWindow().setEnterTransition(new Explode());
         getWindow().setExitTransition(new Explode());
-        getWindow().setSharedElementEnterTransition(new ChangeImageTransform());
-        getWindow().setSharedElementEnterTransition(new ChangeImageTransform());
+
 
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
         search_doctors_relative = findViewById(R.id.relative_search_doctors);
         search_doctors_cardView = findViewById(R.id.card_search_doctors);
         nearby_hospital = findViewById(R.id.nearbyHospital);
+        tips_and_guide = findViewById(R.id.tips_and_guide);
+        about_us = findViewById(R.id.about_us);
+        searchDoctors = MockData.getSearchDoctors();
+        topDoctors =  MockData.getTopDoctors();
 
-        searchDoctors = new ArrayList<>();
-        topDoctors = new ArrayList<>();
-        addSearchDoctors(searchDoctors);
-        addSearchDoctors(topDoctors);
         detailsActivity = new Intent(this, DoctorsPageActivity.class);
 
 
@@ -97,23 +102,60 @@ public class MainActivity extends BaseActivity implements ClickItem {
 
     void  initClick(){
 
+
+        about_us.setOnClickListener(view -> {
+            About_us about_us = new About_us();
+            about_us.show(getSupportFragmentManager(),"about_us");
+        });
+
+
+        tips_and_guide.setOnClickListener(view -> {
+            if (isNetworkAvailable()){
+                Intent intent = new Intent(MainActivity.this, TipsAndGuide.class);
+                startActivity(intent);
+                return;
+            }
+
+            Toast.makeText(MainActivity.this,"Check Network Connectivity",Toast.LENGTH_LONG).show();
+
+        });
+
         talk_to_Elena.setOnClickListener(view -> {
                     gotoMessengerNow();
         });
+
 
         search_doctors_cardView.setOnClickListener(view -> {
 
             initBottomViewForSearch();
         });
 
+
         search_doctors_relative.setOnClickListener(view -> {
          initBottomViewForSearch();
         });
+
         nearby_hospital.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, GoogleMap.class);
-            startActivity(intent);
+            if (isNetworkAvailable()){
+                Intent intent = new Intent(MainActivity.this, GoogleMap.class);
+                startActivity(intent);
+                return;
+            }
+
+            Toast.makeText(MainActivity.this,"Check Network Connectivity",Toast.LENGTH_LONG).show();
+
         });
+
     }
+
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 
     private void gotoMessengerNow(){
         Uri uri = Uri.parse("http://m.me/101823901366644");
@@ -162,7 +204,8 @@ public class MainActivity extends BaseActivity implements ClickItem {
     private List<SearchDoctors> filterInfo( CharSequence charSequence,List<SearchDoctors> searchDoctors){
         List<SearchDoctors> filteredInfo = new ArrayList<>();
         for (SearchDoctors info :searchDoctors){
-            if (info.getDoctorsOccupations().trim().toLowerCase().contains(charSequence.toString().trim().toLowerCase())){
+            if (info.getDoctorsOccupations().trim().toLowerCase().contains(charSequence.toString().trim().toLowerCase())
+            ||info.getDoctorsName().trim().toLowerCase().contains(charSequence.toString().trim().toLowerCase())){
                 filteredInfo.add(info);
             }
         }
@@ -181,16 +224,7 @@ public class MainActivity extends BaseActivity implements ClickItem {
         editText.addTextChangedListener(searchImplement);
     }
 
-    private void addSearchDoctors(List<SearchDoctors> searchDoctors) {
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                searchDoctors.add(new SearchDoctors("Dr .Elena George", "Nurse and Doctors", "+23490629281", R.drawable.nurse, "10:00 Am - 6:00 Am","4.35",""));
-            } else {
-                searchDoctors.add(new SearchDoctors("Dr .Precious Bnb", "Therapist", "+23490629281", R.drawable.nurse, "10:00 Am - 6:00 Am","3.45",""));
 
-            }
-        }
-    }
     private void loadAdapter() {
         TopDoctorsAdapter topDoctorsAdapter  = new TopDoctorsAdapter(this,topDoctors,this);
         recyclerView.setAdapter(topDoctorsAdapter);

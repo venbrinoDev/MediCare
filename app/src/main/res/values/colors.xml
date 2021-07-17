@@ -4,7 +4,6 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="black">#333</color>
     <color name="white">#FFFFFFFF</color>
 
@@ -13,14 +12,7 @@
     <color name="secondaryColor">#F6D9D9</color>
     <color name="primary_100">#DFE4F2</color>
 
-    <color name="colorPrimary">#ffffff</color>
-
-    <color name="colorPrimaryDark">#ffffff</color>
-
-    <color name="colorAccent">#ffffff</color>
-
     <color name="colorPrimary200">#DFE4F2</color>
-    <color name="secondaryColor100" >#F6D9D9</color>
 
 
     <!-- colors for button style -->
@@ -28,17 +20,14 @@
 
     <color name="gradient_start_color">#4c84ff</color>
 
-    <color name="gradient_end_color">#18a3fe</color>
-
     <!-- colors for tab and screent text -->
 
 
     <color name="tab_indicator_gray">#c0c0c0</color>
 
+
     <color name="intro_title_color">#000000</color>
 
-    <color name="intro_description_color">#656565</color>
-    <color name="secondary100">#F8BCFF</color>
-    <color name="base_color">#246FB7</color>
+    <color name="base_color">#161D6F</color>
     <color name="doctors_card_grey">#3E3E3E</color>
 </resources>

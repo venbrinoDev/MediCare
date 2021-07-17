@@ -34,17 +34,18 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+
         <activity
             android:name=".showmap.GoogleMap"
-            android:theme="@style/Theme.Victor.noActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Victor.noActionBar.Blue" />
         <activity
             android:name=".introscreen.IntroActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Victor.noActionBar" />
         <activity
             android:name=".SplashScreen.SplashScreen"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Victor.noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,11 +55,18 @@
         </activity>
         <activity
             android:name=".DocotorsAccout.DoctorsPageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/BlueStatusBar.DoctorsPage" />
         <activity
             android:name=".Main.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/BlueStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity android:name=".TipsAndGuide.TipsAndGuide"
+            android:theme="@style/BlueStatusBar"
+            android:screenOrientation="portrait"
+            />
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

@@ -49,7 +49,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:backgroundTint="@color/colorPrimary200"
-                    android:alpha="0.8
+                    android:alpha="0.5
 "
                     android:background="@drawable/item_horizontal_round"
                     android:layout_height="match_parent"/>

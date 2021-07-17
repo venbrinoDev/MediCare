@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/base_color"
+    android:background="@color/primaryColor"
     android:layout_height="match_parent">
 
  <RelativeLayout
@@ -263,7 +263,7 @@
              android:layout_marginEnd="10dp"
              android:layout_marginStart="10dp"
              android:layout_marginBottom="16dp"
-
+             android:id="@+id/about_us"
              app:cardElevation="0dp"
              app:cardCornerRadius="8dp">
             <LinearLayout
@@ -275,12 +275,12 @@
                    android:layout_height="60dp"
                    android:layout_marginTop="5dp"
                    android:layout_gravity="center"
-                   android:src="@drawable/watch_videp"/>
+                   android:src="@drawable/about_us"/>
 
                <TextView
                    android:layout_width="match_parent"
                    android:textAlignment="center"
-                   android:text="Check Videos"
+                   android:text="About Us "
                    android:fontFamily="@font/sub_heading"
                    android:textFontWeight="2"
                    android:layout_marginTop="10dp"
@@ -299,6 +299,7 @@
              app:cardBackgroundColor="@color/white"
              android:layout_marginEnd="10dp"
              android:layout_marginStart="10dp"
+             android:id="@+id/tips_and_guide"
              android:layout_marginBottom="16dp"
              app:cardElevation="0dp"
              app:cardCornerRadius="8dp">

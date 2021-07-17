@@ -9,6 +9,7 @@
         <item name="colorSecondary">@color/teal_200</item>
 
 
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- Customize your theme here. -->
@@ -19,6 +20,8 @@
 <!--        <item name="android:windowEnterTransition">@transition/expload</item>-->
 <!--        <item name="android:windowExitTransition">@transition/expload</item>-->
 
+        <item name="round_amount">20dp</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
 
     </style>
 
@@ -33,26 +36,40 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Button.Map_Style" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="colorPrimary">@color/primaryColor</item>
+
+    </style>
     <style name="Theme.Victor.noActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
+        <item name="round_amount">20dp</item>
         <item name="colorPrimaryVariant">@color/white</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
 
+    <style name="Theme.Victor.noActionBar.Blue" >
+        <item name="android:statusBarColor" tools:targetApi="l">@color/base_color</item>
+    </style>
+
     <style name="BlueStatusBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/white</item>
+        <item name="round_amount">20dp</item>
         <item name="colorPrimaryDark">@color/white</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/base_color</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primaryColor</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="colorAccent">@color/white</item>
     </style>
-
+<style name="progressBar" parent="Widget.AppCompat.ProgressBar">
+    <item name="colorAccent">@color/base_color</item>
+</style>
     <style name="BlueStatusBar.DoctorsPage">
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary_100</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
@@ -64,6 +81,13 @@
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bottomsheet_shape</item>
+    </style>
 
+    <style name="Relative_change_background">
+        <item name="round_amount">15dp</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="round_amount">10dp</item>
     </style>
 </resources>

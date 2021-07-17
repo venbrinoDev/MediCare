@@ -20,6 +20,7 @@ class DoctorsPageActivity: BaseDoctorsPage() {
         aboutDoctors = findViewById(R.id.aboutDocotors)
         openOrClose = findViewById(R.id.openOrClose)
         scrollView = findViewById(R.id.generalScrollView);
+        doctorsRating = findViewById(R.id.doctorsNumber)
     }
 
     override fun registerOthers() {
@@ -38,6 +39,9 @@ class DoctorsPageActivity: BaseDoctorsPage() {
         doctorsImage.setImageResource(doctors.doctorsImage)
         doctorsOccupation.text = doctors.doctorsOccupations
         doctorsName.text = doctors.doctorsName
+        doctorsRating.text = doctors.rating
+        aboutDoctors.text = doctors.about
+
     }
 
 

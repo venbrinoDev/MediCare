@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.victor.victor.App.util.Constant;
+import com.victor.victor.App.util.SharedPrefManager;
 import com.victor.victor.Main.MainActivity;
 import com.victor.victor.R;
 import com.victor.victor.introscreen.IntroViewPagerAdapter;
@@ -36,6 +38,7 @@ public class IntroActivity extends AppCompatActivity {
     Button btnGetStarted;
     Animation btnAnim ;
     TextView tvSkip;
+    private SharedPrefManager sharedPrefManager;
 
 
     @Override
@@ -67,6 +70,7 @@ public class IntroActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_intro);
 
+        sharedPrefManager= new SharedPrefManager(this);
         // hide the action bar
 
 
@@ -82,9 +86,9 @@ public class IntroActivity extends AppCompatActivity {
         // fill list screen
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("24/Hrs Service","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.first_screen));
-        mList.add(new ScreenItem("Experienced Doctors ","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.second_screen));
-        mList.add(new ScreenItem("Quick Response","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.third_screen));
+        mList.add(new ScreenItem("24/Hrs Service",getString(R.string.hours_service),R.drawable.first_screen));
+        mList.add(new ScreenItem("Experienced Doctors ",getString(R.string.experience_doctor),R.drawable.second_screen));
+        mList.add(new ScreenItem("Quick Response",getString(R.string.quick_respond),R.drawable.third_screen));
 
         // setup viewpager
         screenPager =findViewById(R.id.screen_viewpager);
@@ -159,6 +163,7 @@ public class IntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                saveStartState();
 
                 //open main activity
 
@@ -175,6 +180,8 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
+
+
         // skip button click listener
 
         tvSkip.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +193,18 @@ public class IntroActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        finishAffinity();
+        overridePendingTransition(R.anim.push_in_from_left,R.anim.push_out_to_right);
+    }
+
+    private void saveStartState(){
+        sharedPrefManager.saveBoolean(Constant.JUST_INSTALLED, false);
     }
 
     private boolean restorePrefData() {

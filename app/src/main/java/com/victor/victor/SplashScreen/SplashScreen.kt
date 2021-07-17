@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils
 import com.victor.victor.App.Base.Activity.BaseActivity
 import com.victor.victor.App.util.Constant
 import com.victor.victor.App.util.SharedPrefManager
+import com.victor.victor.Main.MainActivity
 import com.victor.victor.R
 import com.victor.victor.introscreen.IntroActivity
 
@@ -46,7 +47,6 @@ class SplashScreen :BaseActivity() {
     private fun splashScreenCountDown(countDown: Long){
         Handler(Looper.myLooper()!!).postDelayed({
             if (justInstalledApp()) {
-                saveStartState();
                 showOnBoarding();
             } else {
                 showMainScreen();
@@ -56,8 +56,7 @@ class SplashScreen :BaseActivity() {
     }
 
     private fun showMainScreen() {
-        val options = ActivityOptions.makeSceneTransitionAnimation(this,view,"robot")
-        Intent(this, IntroActivity::class.java).apply { startActivity(this, options.toBundle());        }
+        Intent(this, MainActivity::class.java).apply { startActivity(this);        }
     }
 
     private fun showOnBoarding(){

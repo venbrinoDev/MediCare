@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/topPanel"
+              android:layout_marginTop="10dp"
+            app:cardElevation="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="60dp">
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:src="@drawable/nearby_hospital"
+                android:layout_gravity="center"
+                android:layout_height="40dp"/>
+        </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/topPanel"
+        android:backgroundTint="@color/white"
+           app:cardCornerRadius="20dp"
+        app:cardElevation="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/mainshape"
+        >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <androidx.cardview.widget.CardView
+        android:layout_width="70dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+         android:id="@+id/round_image_holder"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="@color/tab_indicator_gray"
+        android:layout_height="70dp">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <ImageView
+                 android:id="@+id/hospital_image"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_gravity="center"
+
+                 android:src="@drawable/map_hospital_icon" />
+         </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@id/round_image_holder"
+        android:layout_height="70dp">
+        <TextView
+            android:id="@+id/hospital_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/actions_texy"
+            android:text="Louis Hospital"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/actions_texy"
+            android:text="23 louis road off wettheral "
+            android:lines="1"
+            android:layout_marginTop="5dp"
+            android:id="@+id/hospital_address"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/round_image_holder"
+            android:id="@+id/aboutSection"
+             android:layout_centerInParent="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#F3F3F3"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                 android:textAlignment="textStart"
+                android:layout_centerInParent="true"
+                android:text="@string/mock_up"
+                android:textStyle="normal"
+                android:maxLength="200"
+                android:id="@+id/hospital_about"
+                android:fontFamily="sans-serif-medium"
+                android:lines="4"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <Button
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:id="@+id/bookAppointment"
+        android:focusable="true"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        style="@style/Button.Map_Style"
+        android:textColor="@color/white"
+        android:theme="@style/Button.Map_Style"
+        android:text="@string/book_appointment"
+        android:textSize="18sp"
+        android:fontFamily="@font/actions_texy"
+        android:elevation="5dp"
+        android:textAlignment="center"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="56dp"/>
+</RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
