@@ -27,7 +27,13 @@ A Medical App that helps patient find and connect doctor, give daily tips and al
 
 <h2 align="left">Screenshots</h2>
 <h4 align="center">
-<img src="https://res.cloudinary.com/codeenzyme/image/upload/v1619002611/Projects%20ScreenShots/Screenshot_20210420-142103_zmnaxq.png" width="30%" vspace="10" hspace="10">
+<img src="images/medi_one.png" width="30%" vspace="10" hspace="10">
+<img src="images/medi_two.png" width="30%" vspace="10" hspace="10">
+<img src="images/medi_three.png" width="30%" vspace="10" hspace="10">
+<br>
+<img src="images/medi_four.png" width="30%" vspace="10" hspace="10">
+<img src="images/medi_five.png" width="30%" vspace="10" hspace="10">
+<img src="images/medi_six.png" width="30%" vspace="10" hspace="10">
 
 ## Author
 Elezua Victor
