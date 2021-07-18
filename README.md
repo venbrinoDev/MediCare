@@ -31,9 +31,8 @@ A Medical App that helps patient find and connect doctor, give daily tips and al
 <img src="images/medi_two.png" width="30%" vspace="10" hspace="10">
 <img src="images/medi_three.png" width="30%" vspace="10" hspace="10">
 <br>
-<img src="images/medi_four.png" width="30%" vspace="10" hspace="10">
 <img src="images/medi_five.png" width="30%" vspace="10" hspace="10">
 <img src="images/medi_six.png" width="30%" vspace="10" hspace="10">
-
+<img src="images/medi_seven.png" width="30%" vspace="10" hspace="10">
 ## Author
 Elezua Victor
